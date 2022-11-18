@@ -106,34 +106,109 @@ document.getElementById("SXTangDan").onclick = function () {
 
 
 /*Tạo hàm kiểm tra số nguyên tố trong JavaScript*/
-function isprime(n){
-    //flag = 0 => không phải số nguyên tố
-    //flag = 1 => số nguyên tố
-    
-    let flag = 1;
+function isprime(n) {
+  //flag = 0 => không phải số nguyên tố
+  //flag = 1 => số nguyên tố
 
-    if (n <2) return flag = 0; /*Số nhỏ hơn 2 không phải số nguyên tố => trả về 0*/
-    
-    /*Sử dụng vòng lặp while để kiểm tra có tồn tại ước số nào khác không*/
-    let i = 2;
-    while(i <n){
-        if( n%i==0 ) {
-            flag = 0;
-            break; /*Chỉ cần tìm thấy 1 ước số là đủ và thoát vòng lặp*/
-        }
-        i++;
+  let flag = 1;
+
+  if (n < 2) return flag = 0; /*Số nhỏ hơn 2 không phải số nguyên tố => trả về 0*/
+
+  /*Sử dụng vòng lặp while để kiểm tra có tồn tại ước số nào khác không*/
+  let i = 2;
+  while (i < n) {
+    if (n % i == 0) {
+      flag = 0;
+      break; /*Chỉ cần tìm thấy 1 ước số là đủ và thoát vòng lặp*/
+    }
+    i++;
+  }
+
+  return flag;
+}
+
+
+document.getElementById("TimSoNguyenToDT").onclick = function () {
+  let SNT = 0;
+  for (let i = 0; i < OutputNumber.length; i++) {
+    if (isprime(OutputNumber[i]) == 1) {
+      SNT = OutputNumber[i];
+    } else {
+      SNT = -1
     }
 
-    return flag;
+    document.getElementById("TimSoNguyenToDT1").innerHTML =
+      "Số nguyen to đầu tiên là" + " " + SNT;
+  }
+}
+// Nhập mảng số thực
+var ArrayOfRealNumbers = [];
+// Số đã thêm
+document.getElementById("addNumber").onclick = function(){
+  var InputNumber = Number(document.getElementById("value").value);
+
+  ArrayOfRealNumbers.push(InputNumber);
+   
+
+  document.getElementById("addNumber1").innerHTML =
+    "Mảng số đã thêm:" + " " + ArrayOfRealNumbers;
+};
+
+function laSoNguyenDuong(value){
+  return (Number.isInteger(value) && value > 0);
+}
+document.getElementById("DemSoNguyen").onclick = function() {
+  var SND = [];
+  
+  for (var i = 0; i < ArrayOfRealNumbers.length; i++){
+    if (laSoNguyenDuong(ArrayOfRealNumbers[i])){
+      SND.push(i);
+    }
+
+break
+  }
+  document.getElementById("DemSoNguyen1").innerHTML =
+  " Đếm Số nguyên tố là" + " " + SND.length;
+};
+
+
+document.getElementById("SoSanhSoLuong").onclick = function() {
+
+  var SND = [];
+  var SNA=[];
+  var A="";
+   
+  for (var i = 0; i < OutputNumber.length; i++) {
+    if (OutputNumber[i] > 0) {
+      SND.push(i);
+    }else{
+      SNA.push(i);
+    };}
+
+    if ( SND.push(i).length >  SNA.push(i).length){
+      A="Số Dương nhiều hơn Am"
+
+    } else if ( SND.push(i).length = SNA.push(i).length){
+      A="Số Dương bằng Số Am"
+
+    } else {A="Số Dương it hơn Am" } 
+    
+
+
+    
+
+
+
+
+
+
+
+document.getElementById("SoSanhSoLuong1").innerHTML =
+       A;
 }
 
- 
-document.getElementById("TimSoNguyenToDT").onclick = function () {
 
-    for (let i = 0; i < OutputNumber.length; i++){
-        if (isprime(OutputNumber[i]) == 1)   ;
-      }
-      
-      document.getElementById("TimSoNguyenToDT1").innerHTML =
-    "Số nguyen to đầu tiên là" + " " + OutputNumber[i];
-}
+
+    
+
+
